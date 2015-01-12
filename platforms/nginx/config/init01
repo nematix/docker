@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Intial folder and files
+mkdir -p /data/config /data/www /data/logs
+touch /data/logs/nginx.log
+
+# Copy intial data
+cp /usr/share/nginx/html/* /data/www
+
+# Change ownership
+chown -R www-data:www-data /data/www
+chown -R nginx:nginx /data/logs/nginx.log
