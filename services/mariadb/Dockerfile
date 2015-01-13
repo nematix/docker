@@ -3,6 +3,7 @@ MAINTAINER Azri Jamil <azri@nematix.com>
 
 ENV MARIADB_DB NONE
 ENV MARIADB_USER mysql
+ENV MARIADB_PASS NONE
 
 RUN apt-get update -qqy && apt-get -y upgrade
 RUN apt-get install -y pwgen mariadb-server mariadb-client
@@ -13,6 +14,6 @@ RUN sed -i -e "s/^innodb_buffer_pool_size.*=.*/innodb_buffer_pool_size = 64M/" /
 
 # Configurations
 ADD config/etc /etc
-ADD config/init03-mariadb /data/config/init03-mariadb
+ADD config/init03-mariadb /config/init03-mariadb
 
 EXPOSE 3306

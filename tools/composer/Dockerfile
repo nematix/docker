@@ -11,7 +11,7 @@ RUN apt-get remove --purge curl -y && apt-get clean
 
 # Volumes
 RUN mkdir -p /data/www
-VOLUME ["/data"]
+VOLUME ["/usr/local/bin"]
 WORKDIR /data/www
 
 # Entrypoint

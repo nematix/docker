@@ -7,16 +7,13 @@ RUN apt-get update -qqy && apt-get -y upgrade
 RUN apt-get install -y nginx
 
 # Reconfigured nginx
-RUN mkdir -p /data/config
 RUN rm -rf /etc/nginx/*.d
 RUN mkdir -p /etc/nginx/addon.d /etc/nginx/conf.d /etc/nginx/host.d /etc/nginx/nginx.d
 RUN useradd -u 500 nginx
 
-# Create volume
-VOLUME ["/data"]
-
 # Configurations
-ADD config/init01 /data/config/init01
+RUN mkdir -p /config
+ADD config/init01 /config/init01
 ADD config/etc /etc
 
 # Ports

@@ -1,7 +1,9 @@
 #!/bin/bash
 
-for init in /data/config/init*; do
-    bash "$init"
+for init in /config/init*; do
+    if [ -f "${init}" ]; then
+        bash "${init}"
+    fi
 done
 
-supervisord
+supervisord -c /etc/supervisor/supervisord.conf

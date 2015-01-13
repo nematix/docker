@@ -1,11 +1,15 @@
 #!/bin/bash
 
 # Intial folder and files
-mkdir -p /data/config /data/www /data/logs
+#mkdir -p /config /data/www /data/logs
 touch /data/logs/nginx.log
 
 # Copy intial data
-cp /usr/share/nginx/html/* /data/www
+if [ "$(ls -A /data/www)" ]; then
+    echo "Public path not empty, skip copy default file."
+else
+    cp /usr/share/nginx/html/* /data/www
+fi
 
 # Change ownership
 chown -R www-data:www-data /data/www
