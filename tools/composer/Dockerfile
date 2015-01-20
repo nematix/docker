@@ -1,4 +1,4 @@
-FROM nematix/ubuntu
+FROM debian:jessie
 MAINTAINER "Azri Jamil" <azri@nematix.com>
 
 WORKDIR /tmp
@@ -9,9 +9,9 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN apt-get remove --purge curl -y && apt-get clean
 
-# Volumes
-RUN mkdir -p /data/www
+# Volumes & folder
 VOLUME ["/usr/local/bin"]
+RUN mkdir -p /data/www
 WORKDIR /data/www
 
 # Entrypoint

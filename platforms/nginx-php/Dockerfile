@@ -12,4 +12,4 @@ RUN service php5-fpm stop
 RUN mkdir -p /etc/nginx/addon.d /etc/php5/fpm/pool.d
 ADD config/etc /etc
 ADD config/init02 /config/init02
-RUN php5enmod mcrypt
+RUN php5enmod mcrypt gd curl
