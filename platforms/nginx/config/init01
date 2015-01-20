@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Intial folder and files
-#mkdir -p /config /data/www /data/logs
+mkdir -p /data/www /data/logs
 touch /data/logs/nginx.log
 
 # Copy intial data
