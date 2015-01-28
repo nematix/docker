@@ -4,7 +4,7 @@ if [[ $MARIADB_PASS != "NONE" ]]; then
     MARIADB_PASS=${MARIADB_PASS:-"$(pwgen -B -s 24 1)"}
 fi
 
-mkdir -p /data/db
+mkdir -p /data/db /data/logs
 chown -R mysql:mysql /data/db
 
 if [ ! "$(ls -A /data/db)" ]; then
