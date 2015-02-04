@@ -12,8 +12,8 @@ RUN apt-get remove --purge curl -y && apt-get clean
 # Volumes & folder
 VOLUME ["/usr/local/bin"]
 RUN mkdir -p /data/www
+WORKDIR /data/www
 
 # Entrypoint
 ENTRYPOINT ["composer"]
 CMD ["--help"]
-WORKDIR /data/www
