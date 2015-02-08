@@ -1,0 +1,18 @@
+registries:
+  - registry: https://index.docker.io/v1/
+    username: azrijamil
+    password: as180800
+    email: azri@nematix.com
+
+  - registry: local
+    username: 192.168.59.103:5000
+
+containers:
+  - nematix/ubuntu
+  - nematix/data
+  - nematix/nginx
+  - nematix/nginx-php
+  - nematix/composer
+  - nematix/redis
+  - nematix/mariadb
+  - nematix/riak

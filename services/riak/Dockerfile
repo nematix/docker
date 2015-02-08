@@ -13,7 +13,7 @@ RUN echo 'root:basho' | chpasswd
 
 # Install riak
 RUN curl https://packagecloud.io/install/repositories/basho/riak/script.deb | sudo bash
-RUN apt-get update && apt-get install -y riak=${RIAK_VERSION}
+RUN apt-get update -qqy && apt-get install -y riak=${RIAK_VERSION}
 
 # Riak configuration
 RUN sed -i.bak "s/riak@127.0.0.1/riak@0.0.0.0/" /etc/riak/riak.conf

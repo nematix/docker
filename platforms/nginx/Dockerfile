@@ -3,7 +3,7 @@ MAINTAINER "Azri Jamil" <azri@nematix.com>
 
 # Package dependency & installing nginx
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -qqy && apt-get -y upgrade
+RUN apt-get update -qqy
 RUN apt-get install -y nginx
 
 # Reconfigured nginx

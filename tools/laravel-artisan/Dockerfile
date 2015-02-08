@@ -3,7 +3,7 @@ MAINTAINER "Azri Jamil" <azri@nematix.com>
 
 WORKDIR /tmp
 
-RUN apt-get update -qqy && apt-get upgrade -y
+RUN apt-get update -qqy
 RUN apt-get install -y \
 php5-cli \
 php5-mcrypt \

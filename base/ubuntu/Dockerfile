@@ -6,7 +6,7 @@ CMD ["/sbin/my_init"]
 
 # Package dependency
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update -qqy && apt-get upgrade -y
+RUN apt-get update -qqy
 RUN apt-get install -y inotify-tools supervisor net-tools procps vim
 RUN service supervisor stop
 

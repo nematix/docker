@@ -5,7 +5,7 @@ ENV MARIADB_DB NONE
 ENV MARIADB_USER mysql
 ENV MARIADB_PASS NONE
 
-RUN apt-get update -qqy && apt-get -y upgrade
+RUN apt-get update -qqy
 RUN apt-get install -y pwgen mariadb-server mariadb-client
 
 RUN sed -i -e "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
