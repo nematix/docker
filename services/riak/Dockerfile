@@ -17,6 +17,8 @@ RUN apt-get update -qqy && apt-get install -y riak=${RIAK_VERSION}
 
 # Riak configuration
 RUN sed -i.bak "s/riak@127.0.0.1/riak@0.0.0.0/" /etc/riak/riak.conf
+RUN sed -i.bak "s/listener.http.internal = 127.0.0.1:8098/listener.http.internal = 0.0.0.0:8098/" /etc/riak/riak.conf
+RUN sed -i.bak "s/listener.protobuf.internal = 127.0.0.1:8087/listener.protobuf.internal = 0.0.0.0:8087/" /etc/riak/riak.conf
 RUN echo "ulimit -n 4096" >> /etc/default/riak
 
 # Expose Riak Protocol Buffers and HTTP interfaces
