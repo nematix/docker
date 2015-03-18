@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Intial folder and files
-mkdir -p /data/www /data/logs
+mkdir -p /data/www /data/logs/supervisor
 touch /data/logs/nginx.log
 
-# Copy intial data
+# Copy initial data
 if [ "$(ls -A /data/www)" ]; then
     echo "Public path not empty, skip copy default file."
 else

@@ -1,10 +1,11 @@
 FROM phusion/baseimage:latest
 MAINTAINER "Azri Jamil" <azri@nematix.com>
 
+# Intial configs
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 CMD ["/sbin/my_init"]
 
-# Package dependency
+# Package dependencies
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -qqy
 RUN apt-get install -y inotify-tools supervisor net-tools procps vim
