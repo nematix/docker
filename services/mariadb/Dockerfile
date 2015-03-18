@@ -1,12 +1,13 @@
 FROM nematix/ubuntu
 MAINTAINER Azri Jamil <azri@nematix.com>
 
+# Environment
 ENV MARIADB_DB NONE
 ENV MARIADB_USER mysql
 ENV MARIADB_PASS NONE
 
-RUN apt-get update -qqy
-RUN apt-get install -y pwgen mariadb-server mariadb-client
+# Packages & dependencies
+RUN apt-get update && apt-get install -y pwgen mariadb-server mariadb-client
 
 RUN sed -i -e "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
 RUN sed -i -e "s/^datadir.*=.*/datadir = \/data\/db/" /etc/mysql/my.cnf

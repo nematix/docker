@@ -4,7 +4,7 @@ if [[ $MARIADB_PASS != "NONE" ]]; then
     MARIADB_PASS=${MARIADB_PASS:-"$(pwgen -B -s 24 1)"}
 fi
 
-mkdir -p /data/db /data/logs
+mkdir -p /data/db /data/logs/supervisor
 chown -R mysql:mysql /data/db
 
 if [ ! "$(ls -A /data/db)" ]; then
@@ -14,7 +14,6 @@ if [ ! "$(ls -A /data/db)" ]; then
     printf "\nWaiting for DB daemon started.."
     while [ ! -e /var/run/mysqld/mysqld.sock ]; do
         printf "."
-        #inotifywait -qqt 2 -e create -e moved_to /var/run/mysqld
         sleep 2
     done
     echo "DB daemon started!"

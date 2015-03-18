@@ -1,19 +1,22 @@
 FROM debian:jessie
 MAINTAINER "Azri Jamil" <azri@nematix.com>
 
-WORKDIR /tmp
+# Dependencies
+RUN apt-get update && apt-get install -y git php5-cli php5-json curl php5-mcrypt
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN apt-get update -qqy
-RUN apt-get install -y git php5-cli php5-json curl php5-mcrypt
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
+# Cleanup
 RUN apt-get remove --purge curl -y && apt-get clean
 
+# Display version information
+RUN php --version
+RUN composer --version
+
 # Volumes & folder
-VOLUME ["/usr/local/bin"]
 RUN mkdir -p /data/www
+VOLUME ["/data","/usr/local/bin"]
 WORKDIR /data/www
 
 # Entrypoint
-ENTRYPOINT ["composer"]
-CMD ["--help"]
+ENTRYPOINT ["composer","--ansi"]
+CMD ["-"]
